@@ -1,36 +1,28 @@
-// ===============================
-// Portfolio JavaScript
-// ===============================
-
 document.addEventListener("DOMContentLoaded", () => {
 
-    // Add current year automatically
-    const yearElement = document.querySelector("footer p");
+    // Update footer year automatically
+    const footerText = document.querySelector("footer p");
 
-    if (yearElement) {
-        yearElement.textContent =
+    if (footerText) {
+        footerText.textContent =
             `© ${new Date().getFullYear()} Sasikala Manikandan`;
     }
 
-
-    // Smooth navigation
+    // Smooth scrolling for navigation links
     document.querySelectorAll('a[href^="#"]').forEach(link => {
 
-        link.addEventListener("click", function (event) {
+        link.addEventListener("click", event => {
 
-            const targetId = this.getAttribute("href");
-
+            const targetId = link.getAttribute("href");
             const target = document.querySelector(targetId);
 
             if (target) {
-
                 event.preventDefault();
 
                 target.scrollIntoView({
                     behavior: "smooth",
                     block: "start"
                 });
-
             }
 
         });
